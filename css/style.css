@@ -1,0 +1,425 @@
+/* ==========================
+   RESET
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI, sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:#f5f7fb;
+    color:#222;
+    overflow-x:hidden;
+}
+
+/* ==========================
+   APP LAYOUT
+========================== */
+
+.app-container{
+    display:grid;
+    grid-template-columns:260px 1fr 260px;
+    gap:20px;
+    padding:15px;
+    min-height:100vh;
+}
+
+/* ==========================
+   PANELS
+========================== */
+
+.left-panel,
+.right-panel{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.left-panel h1{
+    text-align:center;
+    font-size:2rem;
+}
+
+.daily-card,
+.stats-card,
+.difficulty-card,
+.theme-card,
+.instruction-card,
+.feature-card{
+    background:white;
+    padding:15px;
+    border-radius:12px;
+    box-shadow:0 3px 10px rgba(0,0,0,.08);
+}
+
+.daily-card h3,
+.feature-card h3{
+    margin-bottom:10px;
+}
+
+.instruction-card ul,
+.feature-card ul{
+    margin-left:18px;
+}
+
+.instruction-card li,
+.feature-card li{
+    margin-bottom:8px;
+}
+
+/* ==========================
+   CENTER PANEL
+========================== */
+
+.game-panel{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-start;
+}
+
+#message{
+    min-height:30px;
+    font-weight:600;
+    margin-bottom:10px;
+}
+
+/* ==========================
+   BOARD
+========================== */
+
+.board-wrapper{
+    display:flex;
+    justify-content:center;
+    width:100%;
+}
+
+#sudoku-board{
+    display:grid;
+    grid-template-columns:repeat(9,1fr);
+
+    width:min(70vh,520px);
+    height:min(70vh,520px);
+
+    background:white;
+    border:4px solid #222;
+}
+
+.cell{
+    border:1px solid #ccc;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:1.3rem;
+    font-weight:600;
+    cursor:pointer;
+    transition:.2s;
+    user-select:none;
+}
+
+.cell:hover{
+    background:#e9f1ff;
+}
+
+.cell.selected{
+    background:#bcdcff;
+}
+
+.cell.fixed{
+    background:#f0f0f0;
+    cursor:not-allowed;
+}
+
+.cell.wrong{
+    color:red;
+}
+
+/* 3x3 borders */
+
+.cell.border-right{
+    border-right:3px solid #222;
+}
+
+.cell.border-bottom{
+    border-bottom:3px solid #222;
+}
+
+/* Row / Column Highlight */
+
+.cell.highlight{
+    background:#eef6ff;
+}
+
+/* Notes */
+
+.note{
+    font-size:.55rem;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    width:100%;
+    height:100%;
+}
+
+/* ==========================
+   NUMBER PAD
+========================== */
+
+.number-pad{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
+    margin-top:20px;
+}
+
+.number-btn{
+    width:52px;
+    height:52px;
+    border:none;
+    border-radius:10px;
+    background:#2563eb;
+    color:white;
+    font-size:1.1rem;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.number-btn:hover{
+    transform:translateY(-2px);
+}
+
+/* ==========================
+   ACTION BUTTONS
+========================== */
+
+.action-buttons{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:20px;
+}
+
+.action-buttons button{
+    padding:12px 18px;
+    border:none;
+    border-radius:10px;
+    background:#2563eb;
+    color:white;
+    cursor:pointer;
+    font-size:.95rem;
+    transition:.2s;
+}
+
+.action-buttons button:hover{
+    transform:translateY(-2px);
+}
+
+/* ==========================
+   SELECTS
+========================== */
+
+select{
+    width:100%;
+    margin-top:8px;
+    padding:10px;
+    border-radius:8px;
+    border:1px solid #ccc;
+}
+
+/* ==========================
+   MODAL
+========================== */
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.5);
+    justify-content:center;
+    align-items:center;
+}
+
+.modal-content{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    text-align:center;
+    min-width:300px;
+}
+
+.modal-content h2{
+    margin-bottom:15px;
+}
+
+.modal-content button{
+    margin-top:15px;
+    padding:10px 18px;
+    border:none;
+    border-radius:8px;
+    background:#2563eb;
+    color:white;
+    cursor:pointer;
+}
+
+/* ==========================
+   DARK THEME
+========================== */
+
+body.dark{
+    background:#111827;
+    color:white;
+}
+
+body.dark .daily-card,
+body.dark .stats-card,
+body.dark .difficulty-card,
+body.dark .theme-card,
+body.dark .instruction-card,
+body.dark .feature-card{
+    background:#1f2937;
+    color:white;
+}
+
+body.dark #sudoku-board{
+    background:#1f2937;
+    border-color:white;
+}
+
+body.dark .cell{
+    color:white;
+    border-color:#444;
+}
+
+body.dark .cell.fixed{
+    background:#374151;
+}
+
+body.dark .modal-content{
+    background:#1f2937;
+}
+
+/* ==========================
+   OCEAN THEME
+========================== */
+
+body.ocean{
+    background:#dff4ff;
+}
+
+body.ocean .daily-card,
+body.ocean .stats-card,
+body.ocean .difficulty-card,
+body.ocean .theme-card,
+body.ocean .instruction-card,
+body.ocean .feature-card{
+    background:#ffffff;
+}
+
+body.ocean .number-btn,
+body.ocean .action-buttons button{
+    background:#0284c7;
+}
+
+/* ==========================
+   FOREST THEME
+========================== */
+
+body.forest{
+    background:#edf7ed;
+}
+
+body.forest .number-btn,
+body.forest .action-buttons button{
+    background:#2e7d32;
+}
+
+/* ==========================
+   TABLET
+========================== */
+
+@media(max-width:1100px){
+
+    .app-container{
+        grid-template-columns:220px 1fr;
+    }
+
+    .right-panel{
+        display:none;
+    }
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media(max-width:768px){
+
+    .app-container{
+        display:flex;
+        flex-direction:column;
+        gap:15px;
+        padding:10px;
+    }
+
+    .left-panel,
+    .right-panel{
+        width:100%;
+    }
+
+    .left-panel h1{
+        font-size:1.6rem;
+    }
+
+    #sudoku-board{
+        width:85vw;
+        height:85vw;
+        max-width:360px;
+        max-height:360px;
+    }
+
+    .cell{
+        font-size:.95rem;
+    }
+
+    .number-btn{
+        width:42px;
+        height:42px;
+        font-size:1rem;
+    }
+
+    .action-buttons button{
+        flex:1 1 45%;
+        padding:10px;
+        font-size:.85rem;
+    }
+}
+
+/* ==========================
+   SMALL PHONES
+========================== */
+
+@media(max-width:450px){
+
+    #sudoku-board{
+        width:82vw;
+        height:82vw;
+    }
+
+    .cell{
+        font-size:.85rem;
+    }
+
+    .number-btn{
+        width:38px;
+        height:38px;
+    }
+
+    .left-panel h1{
+        font-size:1.4rem;
+    }
+}
