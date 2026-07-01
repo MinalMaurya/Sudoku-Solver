@@ -207,14 +207,4 @@ This project is licensed under the MIT License.
 
 ---
 
-# 👩‍💻 Author
-
-**Minal Maurya**
-
-**M.Sc. Data Science Student**
-
-GitHub: https://github.com/<your-username>
-
----
-
 ## ⭐ If you found this project useful, consider giving it a star!
