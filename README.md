@@ -5,6 +5,9 @@ An advanced **Sudoku Game & Solver** built using **HTML, CSS, and JavaScript**. 
 > **Algorithm Used:** Backtracking
 
 ---
+## 📸 Screenshot
+
+![Sudoku Solver Dashboard](sudukodashabord.png)
 
 # ✨ Features
 
